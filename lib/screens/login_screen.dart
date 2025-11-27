@@ -28,9 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_formKey.currentState!.validate()) {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
       final success = await authProvider.login(
-        _emailController.text.trim(), // Using email field for username as per API
+        _emailController.text
+            .trim(), // Using email field for username as per API
         _passwordController.text.trim(),
       );
+      //f
 
       if (success) {
         // Navigate to Products screen on success
@@ -89,7 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 Text(
                   'تسجيل الدخول',
                   textAlign: TextAlign.center,
-                  style: AppStyles.headline1.copyWith(color: AppColors.textPrimary),
+                  style: AppStyles.headline1.copyWith(
+                    color: AppColors.textPrimary,
+                  ),
                 ),
                 const SizedBox(height: 32),
 
@@ -144,10 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 strokeWidth: 2,
                               ),
                             )
-                          : Text(
-                              'تسجيل الدخول',
-                              style: AppStyles.buttonText,
-                            ),
+                          : Text('تسجيل الدخول', style: AppStyles.buttonText),
                     );
                   },
                 ),
@@ -170,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 const SizedBox(height: 16),
-                
+
                 // Note for testing
                 const Text(
                   'ملاحظة: استخدم "emilys" كبريد إلكتروني و "emilyspass" ككلمة مرور للاختبار.',
